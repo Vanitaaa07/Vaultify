@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import ProfileCard from '../components/ProfileCard';
 import DevStatsSection from '../components/DevStatsSection';
-import { getStreak } from '../components/streak';
+import { getStreak } from '../components/Streak';
 
 
 const HomePage = () => {
