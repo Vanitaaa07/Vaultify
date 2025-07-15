@@ -22,7 +22,7 @@ const ProjectsPage = () => {
   const fetchProjects = async () => {
     try {
       const token = localStorage.getItem('vaultifyToken');
-      const res = await axios.get('API_BASE_URL/projects', {
+      const res = await axios.get('https://vaultify-2no7.onrender.com/projects', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);
@@ -44,14 +44,14 @@ const ProjectsPage = () => {
     try {
       if (editingId) {
         await axios.put(
-          `API_BASE_URL/projects/${editingId}`,
+          `https://vaultify-2no7.onrender.com/projects/${editingId}`,
           newProject,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         toast.success("Project Edited!");
       } else {
         await axios.post(
-          'API_BASE_URL/projects',
+          'https://vaultify-2no7.onrender.com/projects',
           newProject,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -74,7 +74,7 @@ const ProjectsPage = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('vaultifyToken');
     try {
-      await axios.delete(`API_BASE_URL/projects/${id}`, {
+      await axios.delete(`https://vaultify-2no7.onrender.com/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchProjects();

@@ -5,6 +5,7 @@ import logo from '../assets/vaultify-logo.png';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
 
+
 function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const handleRegister = async (e) => {
     setLoading(true);
 
     try {
-      const res = await axios.post('API_BASE_URL/api/auth/register', {
+      const res = await axios.post('https://vaultify-2no7.onrender.com/api/auth/register', {
         name,
         email,
         password

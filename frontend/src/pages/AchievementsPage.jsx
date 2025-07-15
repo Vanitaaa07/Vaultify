@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 
+
 const AchievementsPage = () => {
   const [githubUsername, setGithubUsername] = useState("");
   const [leetcodeUsername, setLeetcodeUsername] = useState("");
@@ -28,7 +29,7 @@ const AchievementsPage = () => {
 
   const fetchAchievements = async () => {
     try {
-      const res = await axios.get("API_BASE_URL/achievements", {
+      const res = await axios.get("https://vaultify-2no7.onrender.com/achievements", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAchievements(res.data);
@@ -40,7 +41,7 @@ const AchievementsPage = () => {
 
   const fetchUsernames = async () => {
     try {
-      const res = await axios.get("API_BASE_URL/user/get-usernames", {
+      const res = await axios.get("https://vaultify-2no7.onrender.com/user/get-usernames", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGithubUsername(res.data.githubUsername || "");
@@ -112,7 +113,7 @@ const AchievementsPage = () => {
         };
       }
 
-      await axios.post("API_BASE_URL/achievements", payload, {
+      await axios.post("https://vaultify-2no7.onrender.com/achievements", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -129,7 +130,7 @@ const AchievementsPage = () => {
   const handleSaveUsernames = async () => {
     try {
       await axios.put(
-        "API_BASE_URL/user/update-usernames",
+        "https://vaultify-2no7.onrender.com/user/update-usernames",
         { githubUsername, leetcodeUsername, codeforcesUsername, codechefUsername },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
+
 const AskVaultPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -30,7 +31,7 @@ const AskVaultPage = () => {
     try {
       const token = localStorage.getItem("vaultifyToken");
 
-      const response = await fetch("API_BASE_URL/api/askvault", {
+      const response = await fetch("https://vaultify-2no7.onrender.com/api/askvault", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

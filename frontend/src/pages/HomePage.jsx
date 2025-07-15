@@ -40,13 +40,13 @@ const HomePage = () => {
         const token = localStorage.getItem('vaultifyToken');
 
         const [projectsRes, notesRes, achievementsRes] = await Promise.all([
-          fetch('API_BASE_URL/api/stats/projects/count', {
+          fetch('https://vaultify-2no7.onrender.com/api/stats/projects/count', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          fetch('API_BASE_URL/api/stats/notes/count', {
+          fetch('https://vaultify-2no7.onrender.com/api/stats/notes/count', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          fetch('API_BASE_URL/api/stats/achievements/latest', {
+          fetch('https://vaultify-2no7.onrender.com/api/stats/achievements/latest', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);

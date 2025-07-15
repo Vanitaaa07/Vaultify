@@ -7,6 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
+
 const CodexPage = () => {
   const [notes, setNotes] = useState([]);
   const [note, setNote] = useState({ title: '', content: '' });
@@ -15,7 +16,7 @@ const CodexPage = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("API_BASE_URL/api/notes", {
+      const res = await axios.get("https://vaultify-2no7.onrender.com/api/notes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotes(res.data);
@@ -37,13 +38,13 @@ const CodexPage = () => {
 
     try {
       if (editingId) {
-        await axios.put(`API_BASE_URL/api/notes/${editingId}`, note, {
+        await axios.put(`https://vaultify-2no7.onrender.com/api/notes/${editingId}`, note, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Note updated!");
         setEditingId(null);
       } else {
-        await axios.post("API_BASE_URL/api/notes", note, {
+        await axios.post("https://vaultify-2no7.onrender.com/api/notes", note, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Note saved!");
@@ -64,7 +65,7 @@ const CodexPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`API_BASE_URL/api/notes/${id}`, {
+      await axios.delete(`https://vaultify-2no7.onrender.com/api/notes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Note deleted");
