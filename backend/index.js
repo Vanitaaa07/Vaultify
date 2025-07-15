@@ -27,8 +27,7 @@ process.on('unhandledRejection', (reason) => {
 app.use(cors({
   origin: [
   'http://localhost:5173',
-  'https://d-frontend.onrender.com',
-  'https://your-frontend.vercel.app'
+  'https://vaultify-kappa.vercel.app/'
   ],
   credentials: true,
 }));
