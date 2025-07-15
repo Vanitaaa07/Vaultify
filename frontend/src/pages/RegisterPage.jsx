@@ -31,7 +31,7 @@ const handleRegister = async (e) => {
       });
 
       toast.success('Registration successful! Please login.');
-      navigate('/login');
+      navigate('/home');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed.');
     } finally {
