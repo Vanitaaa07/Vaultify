@@ -42,9 +42,14 @@ const AskVaultPage = () => {
 
       const data = await response.json();
 
+      let textToShow = data.reply;
+      if (!response.ok || !textToShow) {
+        textToShow = `⚠️ AI Error: ${data.error || "Sorry, I couldn't understand that."}`;
+      }
+
       const botMessage = {
         sender: 'vault',
-        text: data.reply || "Sorry, I couldn't understand that.",
+        text: textToShow,
         time: new Date().toLocaleTimeString()
       };
 
