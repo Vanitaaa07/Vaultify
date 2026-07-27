@@ -8,7 +8,7 @@ export const askVault = async (req, res) => {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
         "HTTP-Referer": req.headers.origin || "https://vaultify-kappa.vercel.app", // ✅ dynamic production referer
-        "X-Title": "Vaultify AskVault"   
+        "X-Title": "Vaultify AskVault"
       },
       body: JSON.stringify({
         model: "google/gemini-2.0-flash-lite-preview-02-05:free", // ✅ ultra-fast Google Gemini Flash Lite
