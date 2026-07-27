@@ -23,7 +23,12 @@ export const askVault = async (req, res) => {
     const reply = data?.choices?.[0]?.message?.content;
 
     if (!reply) {
-      const errorMessage = data?.error?.message || "No response from OpenRouter AI";
+      let errorMessage = "No response from OpenRouter AI";
+      if (typeof data?.error === "string") errorMessage = data.error;
+      else if (data?.error?.message) errorMessage = data.error.message;
+      else if (data?.message) errorMessage = data.message;
+      else if (data && Object.keys(data).length > 0) errorMessage = JSON.stringify(data);
+
       return res.status(500).json({ error: errorMessage, debug: data });
     }
 
